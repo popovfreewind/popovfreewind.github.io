@@ -28,17 +28,20 @@ var MenuOpen = function() {
      {
          $(this).removeClass("active");
          $(this).next(".js-menu").slideUp(200);
+         $(this).next(".js-menu").css('z-index','auto');
      }
      else
      {
         $(this).addClass("active");
         $(this).next(".js-menu").slideDown(200);
+        $(this).next(".js-menu").css('z-index','999');
      }
     }
   });
   $("html").click(function(e) {
     if($(window).width() < 970) {
       $(".js-menu-notclouse").slideUp(200);
+      $(".js-menu-notclouse").css('z-index','auto');
       $(".js-menu-mobile-bt-notclouse").removeClass('active');
     }
   });
@@ -64,12 +67,11 @@ var slickSlider = function() {
 
 var slideDownOnHover = function() {
   $('.js-hover').mouseenter(function(){
-    $(this).find(".js-slide-it-down-on-hover").delay(100).slideDown(100);
+    $(this).find(".js-slide-it-down-on-hover").delay(200).slideDown(100);
     $(this).css('z-index','100');
   });
   $('.js-hover').mouseleave(function(){
-
-    $(this).find(".js-slide-it-down-on-hover").delay(100).slideUp(100);
+    $(this).find(".js-slide-it-down-on-hover").stop(true).delay(100).slideUp(100);
     $(this).delay(200).queue(function(){
         $(this).css('z-index','auto');
         $(this).dequeue();

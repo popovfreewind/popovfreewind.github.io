@@ -1,0 +1,7 @@
+.sprite { display: inline-block; background: url('../img/sprites.png') no-repeat; overflow: hidden; text-indent: -9999px; text-align: left; }
+
+.sprite-logo { background-position: -5px -0px; width: 53px; height: 40px; }
+.sprite-down { background-position: -5px -45px; width: 34px; height: 22px; }
+.sprite-tw { background-position: -5px -72px; width: 29px; height: 24px; }
+.sprite-cart { background-position: -5px -101px; width: 24px; height: 20px; }
+.sprite-dropdown { background-position: -39px -72px; width: 12px; height: 8px; }

@@ -1,0 +1,101 @@
+.sprite {
+    background-image: url(../img/spritesheet.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.sprite-address {
+    width: 14px;
+    height: 19px;
+    background-position: -5px -5px;
+}
+
+.sprite-brash {
+    width: 50px;
+    height: 42px;
+    background-position: -29px -5px;
+}
+
+.sprite-d {
+    width: 35px;
+    height: 35px;
+    background-position: -89px -5px;
+}
+
+.sprite-disp {
+    width: 49px;
+    height: 50px;
+    background-position: -134px -5px;
+}
+
+.sprite-f {
+    width: 35px;
+    height: 35px;
+    background-position: -5px -65px;
+}
+
+.sprite-g {
+    width: 35px;
+    height: 35px;
+    background-position: -50px -65px;
+}
+
+.sprite-game {
+    width: 41px;
+    height: 50px;
+    background-position: -95px -65px;
+}
+
+.sprite-i {
+    width: 35px;
+    height: 35px;
+    background-position: -146px -65px;
+}
+
+.sprite-letter {
+    width: 25px;
+    height: 25px;
+    background-position: -5px -110px;
+}
+
+.sprite-logo {
+    width: 128px;
+    height: 50px;
+    background-position: -40px -125px;
+}
+
+.sprite-love {
+    width: 50px;
+    height: 46px;
+    background-position: -193px -5px;
+}
+
+.sprite-mob {
+    width: 28px;
+    height: 50px;
+    background-position: -193px -61px;
+}
+
+.sprite-phone {
+    width: 17px;
+    height: 17px;
+    background-position: -231px -61px;
+}
+
+.sprite-search {
+    width: 50px;
+    height: 50px;
+    background-position: -178px -121px;
+}
+
+.sprite-t {
+    width: 35px;
+    height: 35px;
+    background-position: -178px -181px;
+}
+
+.sprite-y {
+    width: 35px;
+    height: 35px;
+    background-position: -223px -181px;
+}
