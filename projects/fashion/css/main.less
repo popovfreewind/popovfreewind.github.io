@@ -440,6 +440,10 @@ a, a:hover, a:focus {
 
 /* FOOTER */
 .footer {
+	&__boxes {
+		padding-top: 40px;
+		padding-bottom: 50px;
+	}
 	&__item {
 		color: #575153;
 		border-top: 2px solid #f8f8f8;
@@ -447,6 +451,7 @@ a, a:hover, a:focus {
 	&__tittle {
 		text-transform: uppercase;
 		position: relative;
+		font-size: .921em;
 		&::after {
 			content: "+";
 			font-size: 18px;
@@ -478,6 +483,41 @@ a, a:hover, a:focus {
 				color:@topbar-hover-bg;
 			}
 		}
+	}
+	&__awards,
+	&__social {
+		font-size: 28px;
+		text-align: center;
+		min-height: 180px;
+		color: #fff;
+		
+	}
+	&__awards {
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		background: #333333;
+		padding-top: 38px;
+		
+	}
+	&__social {
+		background: #00c8c8;
+		& a {
+			line-height: 180px;
+			padding-left: 10px;
+			padding-right: 10px;
+			transition: font-size .1s;
+			&:hover {
+			font-size: 38px;
+			}
+		}
+	}
+	&__bottom {
+		background: #333333;
+		color: #777777;
+		line-height: 30px;
+		padding-bottom: 10px;
+		padding-top: 10px;
+		text-align: center;
 	}
 }
 /*media*/
@@ -599,6 +639,36 @@ a, a:hover, a:focus {
 		}
 		&__list {
 
+		}
+		&__awards,
+		&__social {
+			font-size: 36px;
+			
+		}
+		&__awards {
+
+			
+		}
+		&__social {
+
+			& a {
+			padding-left: 25px;
+			padding-right: 25px;
+				&:hover {
+				
+				}
+			}
+		}
+		&__bottom {
+			&-item-1 {
+				text-align: left;
+			}
+			&-item-2 {
+				text-align: center;
+			}
+			&-item-3 {
+				text-align: right;
+			}
 		}
 	}
 }
