@@ -1,5 +1,4 @@
 body {
-	font-family: 'Roboto', sans-serif;
 	font-family: 'Montserrat', sans-serif;
 }
 li {list-style: none;}
@@ -11,6 +10,18 @@ a, a:hover, a:focus {
 .wrap {
 	max-width: 1790px;
 	margin: 0 auto;
+}
+.wrap_small {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+@keyframes rotate45 {
+    from {transform: rotate(0);}
+    to {transform: rotate(45deg);}
+}
+@keyframes rotate-45 {
+    from {transform: rotate(45deg);}
+    to {transform: rotate(0);}
 }
 /* COLORS */
 @topbar-bg: #333;
@@ -84,7 +95,7 @@ a, a:hover, a:focus {
 		padding-left: 10px;
 		padding-right: 10px;
 		line-height: @topbar-height;
-		transition: background, color .1s;
+		transition: background, color, .1s;
 		&:hover, &.active {
 			background: @topbar-hover-bg;
 			color: @topbar-hover-text;
@@ -221,7 +232,7 @@ a, a:hover, a:focus {
 		letter-spacing: 2px;
 		padding: 1.8vw;
 		border: 2px solid #454647;
-		transition: border-color, background-color .1s;
+		transition: border-color, background-color, .1s;
 		&:hover {
 			background-color: #00c8c8;
 			border-color: #00c8c8;
@@ -229,12 +240,22 @@ a, a:hover, a:focus {
 	}
 }
 .content {
-	margin-top: 3.5vw;
-	margin-bottom: 3.5vw;
-	padding-bottom: 3.0vw;
 	color: #727272;
-	border-top: 2px solid #f8f8f8;
-	border-bottom: 2px solid #f8f8f8;
+	&::before,
+	&::after {
+		content: "";
+		display: block;
+		height: 2px;
+		background-color: #f8f8f8;
+		max-width: 1760px;
+		margin: 0 auto;
+		padding-right: 15px;
+		padding-left: 15px;
+		margin-top: 3.5vw;	
+	}
+	&::after {
+		margin-bottom: 3.5vw;
+	}
 	&__filter {
 		position: relative;
 		text-transform: uppercase;
@@ -353,6 +374,112 @@ a, a:hover, a:focus {
 		}
 	}
 }
+/* LOOk BOOK */
+.lookbook {
+	margin-right: auto;
+	margin-left: auto;
+	overflow: hidden;
+	padding-bottom: 105px;
+	&__item {
+		background-repeat: no-repeat;
+		background-size: contain;
+		background-position: bottom left;
+		background-color: #f8f8f8;
+		background-origin: content-box;
+		text-align: right;
+		min-height: 530px;
+		padding-top: 2.2vw;
+		padding-right: 2.2vw;
+		padding-left: 2.2vw;
+		margin-bottom: 15px;
+		color: #575153;
+	}
+	&__men {
+		background-image: url("../img/lookbook_men_bg.png");
+	}
+	&__women {
+		background-image: url("../img/lookbook_women_bg.png");
+	}
+	&__you {
+		background-image: url("../img/lookbook_you_bg.png");
+	}
+	&__content {
+		display: inline-block;
+		max-width: 280px;
+		padding-bottom: 1vw;
+	}
+	&__tittle {
+		text-transform: uppercase;
+		font-size: 40px;
+		font-weight: 400;
+		letter-spacing: 3px;
+		&-bold {
+			font-weight: 700;
+		}
+	}
+	&__text {
+		font-family: 'Roboto', sans-serif;
+	}
+	&__link {
+		display: inline-block;
+		margin-top: 30px;
+		padding: 15px 30px;
+		border: 2px solid #575153;
+		text-transform: uppercase;
+		letter-spacing: 3px;
+		font-size: 16px;
+		transition: color, background-color, border-color, .1s;
+		&:hover {
+			color: #fff;
+			background-color: @topbar-hover-bg;
+			border-color: @topbar-hover-bg;
+		}
+	}
+
+}
+
+/* FOOTER */
+.footer {
+	&__item {
+		color: #575153;
+		border-top: 2px solid #f8f8f8;
+	}
+	&__tittle {
+		text-transform: uppercase;
+		position: relative;
+		&::after {
+			content: "+";
+			font-size: 18px;
+			font-weight: 700;
+			float: right;
+			display: inline-block;
+			margin-right: 10px;
+			animation-name: rotate-45;
+				animation-duration: .5s;
+				animation-fill-mode: forwards;
+		}
+		&.active {
+			&::after {
+				animation-name: rotate45;
+				animation-duration: .5s;
+				animation-fill-mode: forwards;
+			}
+		}
+	}
+	&__col {
+		display: none;
+		padding-left: 0;
+	}
+	&__list {
+		padding-top: 8px;
+		& a {
+			transition: color .1s;
+			&:hover {
+				color:@topbar-hover-bg;
+			}
+		}
+	}
+}
 /*media*/
 @media screen and (min-width: 750px) {
 	.topbar {
@@ -376,7 +503,7 @@ a, a:hover, a:focus {
 		}
 	}
 }
-@media screen and (min-width: 970px) {
+@media screen and (min-width: 992px) {
 	.header {
 		padding-top: 35px;
 		padding-bottom: 35px;
@@ -449,6 +576,29 @@ a, a:hover, a:focus {
 				padding-right: 50px;			
 				transition: color .1s;
 			}
+		}
+	}
+	.lookbook {
+		&__tittle {
+			font-size: 48px;
+		}
+	}
+	.footer {
+		&__item {
+			border: none;
+		}
+		&__tittle {
+
+			&::after {
+				display: none;
+			}
+		}
+		&__col {
+			display: block !important;
+
+		}
+		&__list {
+
 		}
 	}
 }

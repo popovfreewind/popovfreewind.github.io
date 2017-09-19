@@ -23,7 +23,7 @@ var slideItDown = function() {
 
 var MenuOpen = function() {
   $('.js-menu-mobile-bt').click(function(){
-    if($(window).width() < 970) {
+    if($(window).width() < 992) {
      if ($(this).hasClass('active'))
      {
          $(this).removeClass("active");
@@ -39,14 +39,14 @@ var MenuOpen = function() {
     }
   });
   $("html").click(function(e) {
-    if($(window).width() < 970) {
+    if($(window).width() < 992) {
       $(".js-menu-notclouse").slideUp(200);
       $(".js-menu-notclouse").css('z-index','auto');
       $(".js-menu-mobile-bt-notclouse").removeClass('active');
     }
   });
   $(".js-menu-cover-notclouse").click(function(e) {
-    if($(window).width() < 970) {
+    if($(window).width() < 992) {
       e.stopImmediatePropagation();
     }
   });

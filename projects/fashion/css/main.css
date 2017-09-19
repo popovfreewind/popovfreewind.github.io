@@ -1,5 +1,4 @@
 body {
-  font-family: 'Roboto', sans-serif;
   font-family: 'Montserrat', sans-serif;
 }
 li {
@@ -15,6 +14,26 @@ a:focus {
 .wrap {
   max-width: 1790px;
   margin: 0 auto;
+}
+.wrap_small {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@keyframes rotate45 {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(45deg);
+  }
+}
+@keyframes rotate-45 {
+  from {
+    transform: rotate(45deg);
+  }
+  to {
+    transform: rotate(0);
+  }
 }
 /* COLORS */
 /* SISES */
@@ -82,7 +101,7 @@ a:focus {
   padding-left: 10px;
   padding-right: 10px;
   line-height: 45px;
-  transition: background, color .1s;
+  transition: background, color, .1s;
 }
 .topbar__cart:hover,
 .topbar__register:hover,
@@ -219,19 +238,29 @@ a:focus {
   letter-spacing: 2px;
   padding: 1.8vw;
   border: 2px solid #454647;
-  transition: border-color, background-color 0.1s;
+  transition: border-color, background-color, 0.1s;
 }
 .slider__btn:hover {
   background-color: #00c8c8;
   border-color: #00c8c8;
 }
 .content {
-  margin-top: 3.5vw;
-  margin-bottom: 3.5vw;
-  padding-bottom: 3.2vw;
   color: #727272;
-  border-top: 2px solid #f8f8f8;
-  border-bottom: 2px solid #f8f8f8;
+}
+.content::before,
+.content::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background-color: #f8f8f8;
+  max-width: 1760px;
+  margin: 0 auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-top: 3.5vw;
+}
+.content::after {
+  margin-bottom: 3.5vw;
 }
 .content__filter {
   position: relative;
@@ -351,6 +380,106 @@ a:focus {
 .product__btn:hover {
   background: #00c8c8;
 }
+/* LOOk BOOK */
+.lookbook {
+  margin-right: auto;
+  margin-left: auto;
+  overflow: hidden;
+  padding-bottom: 105px;
+}
+.lookbook__item {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom left;
+  background-color: #f8f8f8;
+  background-origin: content-box;
+  text-align: right;
+  min-height: 530px;
+  padding-top: 2.2vw;
+  padding-right: 2.2vw;
+  padding-left: 2.2vw;
+  margin-bottom: 15px;
+  color: #575153;
+}
+.lookbook__men {
+  background-image: url("../img/lookbook_men_bg.png");
+}
+.lookbook__women {
+  background-image: url("../img/lookbook_women_bg.png");
+}
+.lookbook__you {
+  background-image: url("../img/lookbook_you_bg.png");
+}
+.lookbook__content {
+  display: inline-block;
+  max-width: 280px;
+  padding-bottom: 1vw;
+}
+.lookbook__tittle {
+  text-transform: uppercase;
+  font-size: 40px;
+  font-weight: 400;
+  letter-spacing: 3px;
+}
+.lookbook__tittle-bold {
+  font-weight: 700;
+}
+.lookbook__text {
+  font-family: 'Roboto', sans-serif;
+}
+.lookbook__link {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 15px 30px;
+  border: 2px solid #575153;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 16px;
+  transition: color, background-color, border-color, 0.1s;
+}
+.lookbook__link:hover {
+  color: #fff;
+  background-color: #00c8c8;
+  border-color: #00c8c8;
+}
+/* FOOTER */
+.footer__item {
+  color: #575153;
+  border-top: 2px solid #f8f8f8;
+}
+.footer__tittle {
+  text-transform: uppercase;
+  position: relative;
+}
+.footer__tittle::after {
+  content: "+";
+  font-size: 18px;
+  font-weight: 700;
+  float: right;
+  display: inline-block;
+  margin-right: 10px;
+  animation-name: rotate-45;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+}
+.footer__tittle.active::after {
+  animation-name: rotate45;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+}
+.footer__col {
+  display: none;
+  padding-left: 0;
+}
+.footer__list {
+  padding-top: 8px;
+}
+.footer__list a {
+  transition: color .1s;
+}
+.footer__list a:hover {
+  color: #00c8c8;
+}
 /*media*/
 @media screen and (min-width: 750px) {
   .topbar__currency-current i:first-child {
@@ -364,7 +493,7 @@ a:focus {
     padding-left: 5px;
   }
 }
-@media screen and (min-width: 970px) {
+@media screen and (min-width: 992px) {
   .header {
     padding-top: 35px;
     padding-bottom: 35px;
@@ -415,5 +544,17 @@ a:focus {
     padding-bottom: 50px;
     padding-right: 50px;
     transition: color .1s;
+  }
+  .lookbook__tittle {
+    font-size: 48px;
+  }
+  .footer__item {
+    border: none;
+  }
+  .footer__tittle::after {
+    display: none;
+  }
+  .footer__col {
+    display: block !important;
   }
 }
