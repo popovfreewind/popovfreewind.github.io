@@ -121,7 +121,9 @@ body
 
    background: #ececec;
 }
-
+.to-right {
+    float: right;
+}
 .form
 {
    font-size: 14px;
@@ -148,12 +150,12 @@ body
 
       transform: translate(50%, -50%);
    }
-   & p
+   p
    {
       cursor: default;
    }
-   & input,
-   & textarea
+   input,
+   textarea
    {
       display: block;
 
@@ -166,7 +168,7 @@ body
       border: none;
       background: #fafafa;
    }
-   & input[type='submit']
+   input[type='submit']
    {
       font-weight: 700;
 
@@ -201,7 +203,7 @@ body
    margin-bottom: 17px;
 
    color: #0d79bf;
-   & a
+   a
    {
       font-weight: 700;
 
@@ -217,7 +219,7 @@ body
 .comments
 {
    margin-bottom: 30px;
-   & div
+   div
    {
       border-bottom: 1px solid #e6e6e6;
       &:nth-child(odd)
@@ -232,29 +234,29 @@ body
 
       content: '';
    }
-   & img
+   img
    {
       float: left;
 
       border-radius: 50%;
    }
-   & h4
+   h4
    {
       font-size: 20px;
    }
-   & h5
+   h5
    {
       font-size: 14px;
 
       margin-bottom: 10px;
    }
-   & h5,
-   & span,
-   & p
+   h5,
+   span,
+   p
    {
       margin-left: 80px;
    }
-   & span
+   span
    {
       font-size: 11px;
 
@@ -262,7 +264,7 @@ body
 
       color: #999;
    }
-   & a
+   a
    {
       font-size: 10px;
       font-weight: 700;
@@ -274,7 +276,7 @@ body
 .main-table
 {
    overflow: auto;
-   & table
+   table
    {
       width: 100%;
       max-width: 100%;
@@ -286,7 +288,7 @@ body
       border: 1px solid #e8e8e8;
       border-width: 0 0 0 1px;
    }
-   & thead
+   thead
    {
       font-size: 14px;
 
@@ -295,11 +297,11 @@ body
       color: #fff;
       background-color: #61a235;
    }
-   & th
+   th
    {
       padding: 15px;
    }
-   & td
+   td
    {
       position: relative;
 
@@ -319,7 +321,8 @@ body
    display: none;
 }
 .header
-{
+{  
+   display: none;
    margin-bottom: 100px;
    padding-top: 8px;
 
@@ -331,7 +334,7 @@ body
    &__logo
    {
       display: none;
-      & img
+      img
       {
          width: 250px;
          height: auto;
@@ -351,7 +354,7 @@ body
          {
             display: inline-block;
          }
-         & i
+         i
          {
             font-size: 25px;
 
@@ -361,13 +364,13 @@ body
 
             color: #8bcb60;
          }
-         & div
+         div
          {
             line-height: 19px;
 
             margin-left: 35px;
          }
-         & span
+         span
          {
             font-weight: 700;
 
@@ -402,22 +405,22 @@ body
       right: 0;
       left: 0;
    }
-   & nav
+   nav
    {
       display: none;
    }
-   & ul
+   ul
    {
       padding-left: 0;
 
       list-style: none;
    }
-   & li
+   li
    {
       padding-top: 5px;
       padding-bottom: 5px;
    }
-   & a
+   a
    {
       display: inline-block;
 
@@ -440,7 +443,7 @@ body
       margin-top: 5px;
 
       cursor: pointer;
-      & i
+      i
       {
          position: relative;
 
@@ -484,7 +487,7 @@ body
 {
    display: none;
 }
-/* SECTION */
+
 .content
 {
    margin-bottom: 30px;
@@ -498,7 +501,7 @@ body
    display: none;
 
    padding-right: 30px;
-   & h3
+   h3
    {
       font-size: 17px;
       line-height: 1;
@@ -512,7 +515,7 @@ body
       color: #fff;
       background: #0d79bf;
    }
-   & p
+   p
    {
       font-size: 16px;
       font-weight: 700;
@@ -526,7 +529,7 @@ body
       color: #151515;
       background: #d0d0d0;
    }
-   & ul
+   ul
    {
       font-size: 14px;
 
@@ -537,7 +540,7 @@ body
 
       background-color: #f4f5f7;
    }
-   & li
+   li
    {
       padding-left: 12px;
 
@@ -546,7 +549,7 @@ body
       {
          background-color: #b1b1b1;
       }
-      & a
+      a
       {
          line-height: 1.7;
 
@@ -562,7 +565,14 @@ body
 section
 {
    margin-bottom: 30px;
-   & h4
+   h2
+   {
+      &:first-child
+      {
+         margin-top: 0;
+      }
+   }
+   h4
    {
       font-size: 16px;
    }
@@ -573,7 +583,7 @@ section
       margin-right: auto;
       margin-left: auto;
    }
-   & blockquote
+   blockquote
    {
       font-size: 14px;
       font-weight: 700;
@@ -632,6 +642,32 @@ section
          content: '';
 
          background: url('img/mark.png');
+      }
+   }
+}
+article
+{
+   margin: 40px 0;
+   img
+   {
+      float: right;
+   }
+   a
+   {
+      display: inline-block;
+
+      padding: 9px;
+
+      transition: background @delay;
+      text-align: center;
+
+      color: #fff;
+      border-radius: 5px;
+      background: #0d79bf;
+      &:hover
+      {
+         color: #fff;
+         background: #5c9437;
       }
    }
 }
@@ -759,6 +795,24 @@ section
       {
          background-image: url('img/chart4.svg');
       }
+   }
+}
+.btn-def
+{
+   display: inline-block;
+
+   padding: 9px;
+
+   transition: background @delay;
+   text-align: center;
+
+   color: #fff;
+   border-radius: 5px;
+   background: #0d79bf;
+   &:hover
+   {
+      color: #fff;
+      background: #5c9437;
    }
 }
 .price
@@ -917,9 +971,10 @@ section
 
 @media screen and (min-width: 1000px)
 {
-   /* HEADER */
+
    .header
    {
+      display: block;
       &__logo
       {
          display: inline-block;
@@ -1022,8 +1077,8 @@ section
       padding: 0;
       &.default
       {
-        position: absolute;
-        top: 90px;
+         position: absolute;
+         top: 90px;
       }
       &.fixed
       {
