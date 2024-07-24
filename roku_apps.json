@@ -1,14 +1,8 @@
 [
     {
-        "name": "FreeWind Software",
+        "name": "M3X Screensaver",
+        "installUrl": "https://my.roku.com/account/add/XHHD5MM",
+        "detailsUrl": "https://channelstore.roku.com/api/v6/channels/detailsunion/e8d45148a9047b49287acf943e522af7?country=OT&language=en",
         "url": "https://channelstore.roku.com/details/57697/freewind-software"
-    },
-    {
-        "name": "FreeWind TV",
-        "url": "https://channelstore.roku.com/details/57698/freewind-tv"
-    },
-    {
-        "name": "FreeWind Movies",
-        "url": "https://channelstore.roku.com/details/57699/freewind-movies"
     }
 ]
