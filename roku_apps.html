@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Roku Apps</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../icon/favicon.ico" type="image/x-icon" />
+</head>
+
+<body>
+
+    <h1>Roku Apps</h1>
+
+    <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "../roku_apps.json", true);
+        xhr.onreadystatechange = function () {
+            console.log(xhr.readyState, xhr.status);
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var apps = JSON.parse(xhr.responseText);
+
+                var list = document.createElement("ul");
+                document.body.appendChild(list);
+
+                apps.forEach(function (app) {
+                    var item = document.createElement("li");
+                    list.appendChild(item);
+
+                    var link = document.createElement("a");
+                    link.textContent = app.name;
+                    link.href = app.url;
+                    item.appendChild(link);
+                });
+            }
+        };
+        xhr.send();
+
+    </script>
+
+</body>
+
+</html>
