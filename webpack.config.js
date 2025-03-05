@@ -6,7 +6,7 @@ module.exports = (env, argv) => {
     const isProduction = argv.mode === 'production';
 
     return {
-        entry: './src/index.js',
+        entry: './src/main.js',
         mode: argv.mode,
         devtool: 'source-map',
         devServer: {
@@ -18,19 +18,20 @@ module.exports = (env, argv) => {
         },
         module: {
             rules: [
-                {
-                    test: /\.css$/,
-                    use: ['style-loader', 'css-loader'],
-                }
+                { test: /\.css$/, use: ['style-loader', 'css-loader'] },
+                { test: /\.hbs$/, loader: "handlebars-loader" }
             ],
         },
         plugins: [
-            new HtmlWebpackPlugin({ template: './src/index.html' }),
+            new HtmlWebpackPlugin({ 
+                template: './src/views/home/index.hbs',
+                minify: isProduction,
+             }),
             new CopyPlugin({
                 patterns: [
-                  { from: "./src/assets", to: "assets" },
+                    { from: "./src/assets", to: "assets" },
                 ],
-              }),
+            }),
         ],
     }
 };
