@@ -1,3 +1,7 @@
+:root {
+  --text-color-dark: #333;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,4 +11,5 @@
 
 body {
   background-color: #f8f8f8;
+  color: var(--text-color);
 }

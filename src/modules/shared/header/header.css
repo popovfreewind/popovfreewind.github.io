@@ -7,36 +7,35 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
   
-  .logo {
+  .header .logo {
     display: flex;
     align-items: center;
   }
   
-  .logo img {
+  .header .logo img {
     border-radius: 50%;
     margin-right: 10px;
   }
   
-  .logo h1 {
+  .header .logo span {
     font-size: 18px;
     font-weight: bold;
-    color: #222;
   }
   
-  .nav-links {
+  .header nav {
     display: flex;
     gap: 20px;
   }
   
-  .nav-links a {
+  .header nav a {
     text-decoration: none;
     font-size: 16px;
     font-weight: bold;
-    color: black;
+    color: var(--text-color);
     transition: color 0.3s;
   }
   
-  .nav-links a:hover {
+  .header nav a:hover {
     color: #666;
   }
   
@@ -46,7 +45,7 @@
         text-align: center;
     }
   
-    .nav-links {
+    .header nav {
         margin-top: 10px;
     }
   }
