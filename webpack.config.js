@@ -24,7 +24,7 @@ module.exports = (env, argv) => {
         },
         plugins: [
             new HtmlWebpackPlugin({ 
-                template: './src/views/home/index.hbs',
+                template: './src/hbs/views/home/index.hbs',
                 minify: isProduction,
              }),
             new CopyPlugin({
