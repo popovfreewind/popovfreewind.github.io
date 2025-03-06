@@ -2,4 +2,5 @@
 @import url('../../shared/header/header.css');
 @import url('../../shared/footer/footer.css');
 
+@import url('social/social.css');
 @import url('hero/hero.css');
