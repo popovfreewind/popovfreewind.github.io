@@ -6,7 +6,7 @@ module.exports = (env, argv) => {
     const isProduction = argv.mode === 'production';
 
     return {
-        entry: './src/main.js',
+        entry: './src/modules/pages/home/index.js',
         mode: argv.mode,
         devtool: 'source-map',
         devServer: {
@@ -24,7 +24,7 @@ module.exports = (env, argv) => {
         },
         plugins: [
             new HtmlWebpackPlugin({ 
-                template: './src/hbs/views/home/index.hbs',
+                template: './src/modules/pages/home/index.hbs',
                 minify: isProduction,
              }),
             new CopyPlugin({
