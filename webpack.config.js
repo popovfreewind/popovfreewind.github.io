@@ -11,6 +11,7 @@ module.exports = (env, argv) => {
         devtool: 'source-map',
         devServer: {
             static: path.resolve(__dirname, 'dist'),
+            watchFiles: ['src/**/*.hbs'],
             port: 3000,
         },
         output: {
