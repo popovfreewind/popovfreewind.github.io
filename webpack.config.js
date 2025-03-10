@@ -10,6 +10,7 @@ module.exports = (env, argv) => {
             // pages
             home: './src/modules/pages/home/home.js',
             projects: './src/modules/pages/projects/projects.js',
+            contact: './src/modules/pages/contact/contact.js',
 
             // shared
             shared: './src/modules/shared/shared.js'
@@ -22,6 +23,7 @@ module.exports = (env, argv) => {
             port: 3000,
         },
         output: {
+            publicPath: isProduction ? 'https://popovfreewind.github.io/' : 'http://localhost:3000/',
             path: path.resolve(__dirname, 'dist'),
         },
         module: {
@@ -42,6 +44,12 @@ module.exports = (env, argv) => {
                 filename: 'projects.html',
                 minify: isProduction,
                 chunks: ['shared', 'projects']
+             }),
+            new HtmlWebpackPlugin({ 
+                template: './src/modules/pages/contact/contact.hbs',
+                filename: 'contact.html',
+                minify: isProduction,
+                chunks: ['shared', 'contact']
              }),
             new CopyPlugin({
                 patterns: [
