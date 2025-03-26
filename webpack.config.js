@@ -29,31 +29,39 @@ module.exports = (env, argv) => {
         module: {
             rules: [
                 { test: /\.css$/, use: ['style-loader', 'css-loader'] },
-                { test: /\.hbs$/, loader: "handlebars-loader" }
+                {
+                    test: /\.hbs$/, loader: "handlebars-loader", options: {
+                        helperDirs: path.resolve(__dirname, './src/handlebars-helpers')
+                    }
+                }
             ],
         },
         plugins: [
-            new HtmlWebpackPlugin({ 
+            new HtmlWebpackPlugin({
                 template: './src/modules/pages/home/home.hbs',
                 filename: 'index.html',
                 minify: isProduction,
-                chunks: ['shared', 'home']
-             }),
-            new HtmlWebpackPlugin({ 
+                chunks: ['shared', 'home'],
+                templateParameters: { currentPage: 'home' }
+            }),
+            new HtmlWebpackPlugin({
                 template: './src/modules/pages/projects/projects.hbs',
                 filename: 'projects.html',
                 minify: isProduction,
-                chunks: ['shared', 'projects']
-             }),
-            new HtmlWebpackPlugin({ 
+                chunks: ['shared', 'projects'],
+                templateParameters: { currentPage: 'projects' }
+            }),
+            new HtmlWebpackPlugin({
                 template: './src/modules/pages/contact/contact.hbs',
                 filename: 'contact.html',
                 minify: isProduction,
-                chunks: ['shared', 'contact']
-             }),
+                chunks: ['shared', 'contact'],
+                templateParameters: { currentPage: 'contact' }
+            }),
             new CopyPlugin({
                 patterns: [
                     { from: "./src/assets", to: "assets" },
+                    { from: "./src/google-verification" },
                 ],
             }),
         ],
