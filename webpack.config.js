@@ -61,6 +61,7 @@ module.exports = (env, argv) => {
             new CopyPlugin({
                 patterns: [
                     { from: "./src/assets", to: "assets" },
+                    { from: "./src/google-verification" },
                 ],
             }),
         ],
