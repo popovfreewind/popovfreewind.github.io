@@ -8,6 +8,8 @@
 }
 
 .header .logo {
+  text-decoration: none;
+  color: var(--text-color);
   display: flex;
   align-items: center;
 }
