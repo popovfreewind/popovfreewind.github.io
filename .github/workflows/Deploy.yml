@@ -29,14 +29,16 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: install projects submodule dependencies
-        run: cd src/all-my-projects-data && npm install
+      - name: Print package.json contents
+        run: cat src/all-my-projects-data/package.json
 
-      - name: Build ls
-        run: cd src/all-my-projects-data && ls
+      - name: List files in directory
+        run: ls -la src/all-my-projects-data
 
-      - name: Build submodule
-        run: cd src/all-my-projects-data && npm run build
+      - name: Run build script
+        run: |
+          cd src/all-my-projects-data
+          npm run build
 
       - name: Build the app
         run: npm run build_prod
