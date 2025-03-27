@@ -32,6 +32,9 @@ jobs:
       - name: install projects submodule dependencies
         run: cd src/all-my-projects-data && npm install
 
+      - name: Build ls
+        run: cd src/all-my-projects-data && ls
+
       - name: Build submodule
         run: cd src/all-my-projects-data && npm run build
 
