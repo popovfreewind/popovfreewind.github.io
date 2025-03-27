@@ -41,6 +41,11 @@ jobs:
       - name: List files in directory
         run: ls -la src/all-my-projects-data
 
+      - name: Install dependencies for all-my-projects-data
+        run: |
+          cd src/all-my-projects-data
+          npm install
+
       - name: Run build script
         run: |
           cd src/all-my-projects-data
