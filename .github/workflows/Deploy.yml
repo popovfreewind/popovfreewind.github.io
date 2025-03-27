@@ -29,8 +29,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Prebuild projects data
-        run: npm run prebuild_projects_data
+      - name: install projects submodule dependencies
+        run: cd src/all-my-projects-data && npm install
+
+      - name: Build submodule
+        run: cd src/all-my-projects-data && npm run build
 
       - name: Build the app
         run: npm run build_prod
