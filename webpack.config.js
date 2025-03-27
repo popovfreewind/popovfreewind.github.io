@@ -1,22 +1,71 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const fs = require('fs');
 
-module.exports = (env, argv) => {
+module.exports = async (env, argv) => {
     const isProduction = argv.mode === 'production';
+    const projectsConfigPath = "src/all-my-projects-data/dist/projects.json";
+    const projectsData = JSON.parse(fs.readFileSync(projectsConfigPath, 'utf-8'));
+    const pages = [
+        {
+            name: 'home',
+            template: './src/modules/pages/home/home.hbs',
+            entry: './src/modules/pages/home/home.js',
+            filename: 'index.html',
+            templateParameters: { currentPage: 'home' }
+        },
+        {
+            name: 'about',
+            template: './src/modules/pages/projects/projects.hbs',
+            entry: './src/modules/pages/projects/projects.js',
+            filename: 'projects.html',
+            templateParameters: { currentPage: 'projects', projects: projectsData }
+        },
+        {
+            name: 'contact',
+            template: './src/modules/pages/contact/contact.hbs',
+            entry: './src/modules/pages/contact/contact.js',
+            filename: 'contact.html',
+            templateParameters: { currentPage: 'contact' }
+        }
+    ]
+
+    // Dynamically build entries
+    const entries = {
+        shared: './src/modules/shared/shared.js',
+        project: './src/modules/pages/project/project.js'
+    };
+    pages.forEach(page => {
+        entries[page.name] = page.entry;
+    });
+
+    // add pages from projectsData
+    projectsData.forEach(project => {
+        const sanitizedFilename = project.name.toLowerCase().replace(/\s+/g, '-'); // Replace spaces with hyphens
+        const page = {
+            name: "project",
+            template: './src/modules/pages/project/project.hbs',
+            filename: `${sanitizedFilename}.html`,
+            templateParameters: { currentPage: 'projects', project }
+        };
+        pages.push(page);
+    });
+
+    // Dynamically create HtmlWebpackPlugin instances
+    const htmlPlugins = pages.map(page => new HtmlWebpackPlugin({
+        template: page.template,
+        filename: page.filename,
+        minify: isProduction,
+        chunks: ['shared', page.name],
+        templateParameters: page.templateParameters,
+    }));
 
     return {
-        entry: {
-            // pages
-            home: './src/modules/pages/home/home.js',
-            projects: './src/modules/pages/projects/projects.js',
-            contact: './src/modules/pages/contact/contact.js',
-
-            // shared
-            shared: './src/modules/shared/shared.js'
-        },
+        entry: entries,
         mode: argv.mode,
-        devtool: 'source-map',
+        devtool: isProduction ? false : 'source-map',
         devServer: {
             static: path.resolve(__dirname, 'dist'),
             watchFiles: ['src/**/*.hbs'],
@@ -37,27 +86,8 @@ module.exports = (env, argv) => {
             ],
         },
         plugins: [
-            new HtmlWebpackPlugin({
-                template: './src/modules/pages/home/home.hbs',
-                filename: 'index.html',
-                minify: isProduction,
-                chunks: ['shared', 'home'],
-                templateParameters: { currentPage: 'home' }
-            }),
-            new HtmlWebpackPlugin({
-                template: './src/modules/pages/projects/projects.hbs',
-                filename: 'projects.html',
-                minify: isProduction,
-                chunks: ['shared', 'projects'],
-                templateParameters: { currentPage: 'projects' }
-            }),
-            new HtmlWebpackPlugin({
-                template: './src/modules/pages/contact/contact.hbs',
-                filename: 'contact.html',
-                minify: isProduction,
-                chunks: ['shared', 'contact'],
-                templateParameters: { currentPage: 'contact' }
-            }),
+            new CleanWebpackPlugin(),
+            ...htmlPlugins,
             new CopyPlugin({
                 patterns: [
                     { from: "./src/assets", to: "assets" },
@@ -65,5 +95,5 @@ module.exports = (env, argv) => {
                 ],
             }),
         ],
-    }
+    };
 };

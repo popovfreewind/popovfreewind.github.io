@@ -1,0 +1,3 @@
+[submodule "src/all-my-projects-data"]
+	path = src/all-my-projects-data
+	url = https://github.com/popovfreewind/all-my-projects-data.git
