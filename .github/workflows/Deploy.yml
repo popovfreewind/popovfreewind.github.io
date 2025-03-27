@@ -29,27 +29,11 @@ jobs:
         with:
           submodules: true  # Initialize and update submodules
 
-      - name: Pull latest data from submodule
-        run: git submodule update --remote --merge
-
       - name: Install dependencies
         run: npm install
 
-      - name: Print package.json contents
-        run: cat src/all-my-projects-data/package.json
-
-      - name: List files in directory
-        run: ls -la src/all-my-projects-data
-
-      - name: Install dependencies for all-my-projects-data
-        run: |
-          cd src/all-my-projects-data
-          npm install
-
-      - name: Run build script
-        run: |
-          cd src/all-my-projects-data
-          npm run build
+      - name: Build the submodule projects data
+        run: npm run prebuild_projects_data
 
       - name: Build the app
         run: npm run build_prod
