@@ -2,17 +2,12 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const nodeFetch = require('node-fetch');
+const fs = require('fs');
 
 module.exports = async (env, argv) => {
     const isProduction = argv.mode === 'production';
-    const projectsConfigPath = "https://popovfreewind.github.io/all-my-projects-data/projects.json";
-
-    const response = await nodeFetch(projectsConfigPath);
-    if (!response.ok) {
-        throw new Error(`Failed to fetch ${projectsConfigPath}: ${response.statusText}`);
-    }
-    const projectsData = await response.json();
+    const projectsConfigPath = "src/all-my-projects-data/dist/projects.json";
+    const projectsData = JSON.parse(fs.readFileSync(projectsConfigPath, 'utf-8'));
     const pages = [
         {
             name: 'home',
