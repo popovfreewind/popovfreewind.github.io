@@ -4,7 +4,24 @@
 
 {{> ../../shared/header/header}}
 
-{{> projectsList/projectsList}}
+<section class="projectsList">
+    <div class="projectsList__container">
+        <h1>Projects</h1>
+        <div class="projectsList__items">
+            {{#each projects}}
+                <div class="projectsList__item">
+                    <img src="{{this.poster}}" alt="{{this.name}} poster" class="projectsList__poster" loading="lazy" width="268" height="201">
+                    <h2>{{this.name}}</h2>
+                    <p>Platforms: 
+                        {{#each this.links}}
+                            <a href="{{this}}" target="_blank" class="projectsList__link">{{@key}}</a>
+                        {{/each}}
+                    </p>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
 
 {{> ../../shared/footer/footer}}
 

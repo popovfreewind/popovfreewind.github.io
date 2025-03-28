@@ -1,1 +1,58 @@
+/* General styling for the contact page */
+.contact {
+    padding: 20px;
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
+.contact h1 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact p {
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+/* Styling for the email link */
+.contact a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
+/* Socials section styling */
+.contact h2 {
+    color: #333;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact ul li {
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+.contact ul li a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact ul li a:hover {
+    text-decoration: underline;
+}

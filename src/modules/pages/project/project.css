@@ -1,1 +1,60 @@
-@import url('projectItem/projectItem.css');
+/* General container styling */
+.projectItem {
+    padding: 20px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+}
+
+.projectItem__container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+/* Project title styling */
+.projectItem__container h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Poster image styling */
+.projectItem__poster {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Type and platforms styling */
+.projectItem__container p {
+    font-size: 1rem;
+    color: #666;
+    margin: 10px 0;
+}
+
+.projectItem__platform {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    margin-right: 5px;
+}
+
+/* Links styling */
+.projectItem__link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.projectItem__link:hover {
+    text-decoration: underline;
+}
