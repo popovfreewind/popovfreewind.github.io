@@ -26,13 +26,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout repository
         uses: actions/checkout@v2
-        with:
-          submodules: true  # Initialize and update submodules
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build the submodule projects data
+      - name: Build projects data
         run: npm run prebuild_projects_data
 
       - name: Build the app

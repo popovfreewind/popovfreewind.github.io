@@ -1,0 +1,21 @@
+{
+  "name": "all-my-projects-data",
+  "version": "1.0.0",
+  "description": "Project catalog data for the portfolio site",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "ts-node src/index.ts"
+  },
+  "private": true,
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^22.13.14",
+    "fs-extra": "^11.3.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
+  }
+}
