@@ -6,7 +6,7 @@ const project: Project = {
     type: "game",
     platforms: ["Roku"],
     links: {
-        Roku: "https://channelstore.roku.com/details/a81570126be1bafb5c5f1ab39d28b364:6f464ab749c0cab8d671331f914258d8/color-book-kids-draw-and-paint"
+        Roku: "https://channelstore.roku.com/details/57391a5b29d5381e1049828888198060:15427bfc11ceef5c965e63db9ad425b1/color-book-kids-draw-and-paint"
     }
 }
 

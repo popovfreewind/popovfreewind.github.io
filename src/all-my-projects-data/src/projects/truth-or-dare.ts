@@ -6,7 +6,7 @@ const project: Project = {
     type: "game",
     platforms: ["Roku"],
     links: {
-        Roku: "https://channelstore.roku.com/details/a5073654672a6488e1947cc26975b2c2:54b965264b374474cd31ade076a9c8f1/truth-or-dare-spicy-party"
+        Roku: "https://channelstore.roku.com/details/81333fce8d2e5d7ead44850859b6ef19:421a52bac565bf55bca84e0711677597/truth-or-dare-spicy-party"
     }
 }
 
