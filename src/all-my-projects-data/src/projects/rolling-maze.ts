@@ -6,7 +6,7 @@ const project: Project = {
     type: "game",
     platforms: ["Roku"],
     links: {
-        Roku: "https://channelstore.roku.com/details/fdd2f89046363fb2b94a4ab27af39c65:84f5b85e865893c9162dc42c99cc69cc/rolling-maze-game"
+        Roku: "https://channelstore.roku.com/details/8cbd2d4ebc8f05e1583e8da5fa3a02e0:c4fe151a60241e192e57891e81fc0b70/rolling-maze"
     }
 }
 
